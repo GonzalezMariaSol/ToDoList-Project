@@ -1,4 +1,5 @@
 import "./App.css";
+import { useState } from "react";
 import NavBar from "./assets/components/NavBar";
 import Form from "./assets/components/Form";
 // import ListOfTask from "./assets/components/ListOfTasks";
@@ -6,10 +7,19 @@ import Form from "./assets/components/Form";
 // import Footer from "./assets/components/Footer";
 
 function App() {
+
+  const [lsTask, setLsTask] = useState(JSON.parse(localStorage.getItem("taskName")) || []); //VA ACTUALIZANDO AL LOCAL STORAGE
+
+
+
+
+
+
+
   return (
     <>
       <NavBar />
-      <Form />
+      <Form lsTask={lsTask} setLsTask={setLsTask}/>
       {/* <ListOfTask />
       <Task /> */}
       {/* <Footer /> */}
