@@ -7,7 +7,7 @@ import MenuItem from "@mui/material/MenuItem"; //le da estilos a mi menuItem que
 
 const TaskTypeSelector = () => {
 
-const [optionChosen, setOptionChosen] = useState('all'); //Iniciamos la app con la opcion all ya seleccionada
+const [optionChosen, setOptionChosen] = useState(''); //Iniciamos la app con la opcion all ya seleccionada
 
 const selectOption = (e) => {
     console.log(e.target.value);//devuelve la opcion elegida
