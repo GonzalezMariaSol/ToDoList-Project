@@ -1,4 +1,4 @@
-// import TaskTypeSelector from  './TaskTypeSelector'
+import TaskTypeSelector from  './TaskTypeSelector'
 import { useState } from "react";
 
 const Form = ({lsTask, setLsTask}) => {
@@ -33,7 +33,7 @@ const Form = ({lsTask, setLsTask}) => {
           <label htmlFor="taskNameInput">Tarea</label>
           <input type="text" id="taskNameInput" name="taskName" onChange={getTaskAdded} />
         </div>
-        {/* <TaskTypeSelector /> */}
+        <TaskTypeSelector />
       </div>
       <button type="submit">Cargar</button>
     </form>
