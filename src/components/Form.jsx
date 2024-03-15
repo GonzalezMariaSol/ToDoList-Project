@@ -42,7 +42,7 @@ const Form = ({ lsTask, setLsTask }) => {
       >
         <TextField id="outlined-basic" label="Task" variant="outlined" onChange={getTaskAdded}/>{" "}
         <TaskTypeSelector />
-        {/* <button type="submit" >Cargar</button> */}
+        <button type="submit" >Cargar</button>
       </Box>
   );
 };
