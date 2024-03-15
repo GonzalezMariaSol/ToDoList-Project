@@ -18,30 +18,26 @@ function App() {
 
   const [lsTask, setLsTask] = useState(JSON.parse(localStorage.getItem("taskName")) || []); //VA ACTUALIZANDO AL LOCAL STORAGE
 
-console.log(typeof(lsTask));
-// console.log("soy el set", typeof(setLsTask));//devuelve que es un arr
-// console.log("soy el estado", typeof(lsTask));//devuelve que es un obj
-
-//   const pruebas = [
-//     {
-//         id: crypto.randomUUID(),
-//         nombre: "task",
-//     },
-//     {
-//         id: crypto.randomUUID(),
-//         nombre: "adfñlakj",
-//     },
-//     {
-//         id: crypto.randomUUID(),
-//         nombre: "p",
-//     }
-// ]
+  const pruebas = [
+    {
+        id: crypto.randomUUID(),
+        nombre: "task",
+    },
+    {
+        id: crypto.randomUUID(),
+        nombre: "adfñlakj",
+    },
+    {
+        id: crypto.randomUUID(),
+        nombre: "p",
+    }
+]
 
   return (
     <>
       <NavBar />
       <Form lsTask={lsTask} setLsTask={setLsTask}/>
-      <Task lsTasks={lsTask}/>
+      <Task lsTasks={pruebas}/>
      {/* <ShowTasks /> */}
       {/* <Footer /> */}
     </>
