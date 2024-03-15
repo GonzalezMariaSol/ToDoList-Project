@@ -1,4 +1,4 @@
-// import "./App.css";
+// import "./App.css"; //no quiero esto
 import { useState } from "react";
 import NavBar from "./assets/components/NavBar";
 import Form from "./assets/components/Form";
