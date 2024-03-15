@@ -2,8 +2,8 @@
 import { useState } from "react";
 import NavBar from "./assets/components/NavBar";
 import Form from "./assets/components/Form";
-import Task from "./assets/components/Tasks";
-// import ShowTasks from "./assets/components/ShowTasks";
+import RenderTasks from "./assets/components/RenderTasks";
+// import ManageTasks from "./assets/components/ManageTasks";
 // import Footer from "./assets/components/Footer";
 
 
@@ -18,27 +18,12 @@ function App() {
 
   const [lsTask, setLsTask] = useState(JSON.parse(localStorage.getItem("taskName")) || []); //VA ACTUALIZANDO AL LOCAL STORAGE
 
-  const pruebas = [
-    {
-        id: crypto.randomUUID(),
-        nombre: "task",
-    },
-    {
-        id: crypto.randomUUID(),
-        nombre: "adfñlakj",
-    },
-    {
-        id: crypto.randomUUID(),
-        nombre: "p",
-    }
-]
-
   return (
     <>
       <NavBar />
       <Form lsTask={lsTask} setLsTask={setLsTask}/>
-      <Task lsTasks={pruebas}/>
-     {/* <ShowTasks /> */}
+      <RenderTasks lsTasks={lsTask}/>
+     {/* <ManageTasks /> */}
       {/* <Footer /> */}
     </>
   );
