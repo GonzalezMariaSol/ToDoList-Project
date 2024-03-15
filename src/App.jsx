@@ -3,7 +3,7 @@ import { useState } from "react";
 import NavBar from "./assets/components/NavBar";
 import Form from "./assets/components/Form";
 import RenderTasks from "./assets/components/RenderTasks";
-// import ManageTasks from "./assets/components/ManageTasks";
+import ManageTasks from "./assets/components/ManageTasks";
 // import Footer from "./assets/components/Footer";
 
 
@@ -23,7 +23,7 @@ function App() {
       <NavBar />
       <Form lsTask={lsTask} setLsTask={setLsTask}/>
       <RenderTasks lsTasks={lsTask}/>
-     {/* <ManageTasks /> */}
+     <ManageTasks />
       {/* <Footer /> */}
     </>
   );
