@@ -23,6 +23,10 @@ const Form = ({ lsTask, setLsTask }) => {
     const valor = { id: crypto.randomUUID(), task: loadedTask }; //SE GUARDA EN VALOR LO QUE SE ESCRIBIO EN EL INPUT Y SE LE DA UN ID
     setLsTask([...lsTask, valor]); //SE AGREGA EL NUEVO OBJETO CREADO
     localStorage.setItem("taskName", JSON.stringify([...lsTask, valor])); //SE AGREGA AL LS EL NUEVO OBJETO CREADO
+
+
+    console.log("soy el estado", typeof(lsTask)); //devuelve que es un obj
+    console.log("soy el set", typeof(setLsTask)); //devuelve que es un arr
   };
 
   return (
