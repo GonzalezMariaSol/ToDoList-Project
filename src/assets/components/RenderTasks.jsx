@@ -14,17 +14,15 @@ const RenderTasks = ({ lsTasks }) => {
     <div>
       {lsTasks ? (
         lsTasks.map((lsTask) => (
+          <div style={{backgroundColor:"pink", width:"50%", display: "flex",
+          alignItems: "center",}}>
           <ListItem
             key={lsTask.id}
             divider
             sx={{
-              width: "90%",
-              maxWidth: 300,
               marginBottom: "1vw",
               border: "1px solid black",
               borderRadius: "5px",
-              display: "flex",
-              alignItems: "center",
             }}
           >
             <ListItemText primary={lsTask.task} sx={{ marginRight: "2vw" }} />
@@ -45,6 +43,7 @@ const RenderTasks = ({ lsTasks }) => {
               <MdDelete />
             </IconButton>
           </ListItem>
+          </div>
         ))
       ) : (
         <p>Sorry, no se mostraron tareas</p>
