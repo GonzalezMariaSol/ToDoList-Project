@@ -29,7 +29,9 @@ const RenderTasks = ({ lsTasks, idBtn }) => {
             <ListItemText id={lsTask.id} primary={lsTask.task} sx={{ marginRight: "2vw" }} />
             <IconButton 
               // onClick={() => console.log(lsTask.id)} //funciona el click
-              onClick={() => idBtn(lsTask.id)} //!ya NO funciona y me dice que idBtn no es una funcion
+              // onClick={() => idBtn(lsTask.id)} //!ya NO funciona y me dice que idBtn no es una funcion
+              onClick={() => idBtn("hola")}
+
               aria-label="check"
               sx={{
                 backgroundColor: "green",
