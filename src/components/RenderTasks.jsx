@@ -4,12 +4,11 @@ import Task from "./Task";
 
 
 const RenderTasks = ({ lsTasks }) => {
-
   return (
     <div>
       {lsTasks.length ? (
         lsTasks.map((lsTask) => (
-          <Task lsTaskId={lsTask.id} lsTaskName={lsTask.task} key={lsTask.id} />
+          <Task lsTask={lsTasks} lsTaskId={lsTask.id} lsTaskName={lsTask.task} />
         ))
       ) : (
         <p>Sorry, no se mostraron tareas</p>

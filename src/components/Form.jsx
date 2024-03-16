@@ -20,7 +20,7 @@ const Form = ({ lsTask, setLsTask }) => {
 
   const handleAddTask = (loadedTask) => {
     //LE LLEGA LO QUE SE PUSO EN EL INPUT
-    const valor = { id: crypto.randomUUID(), task: loadedTask }; //SE GUARDA EN VALOR LO QUE SE ESCRIBIO EN EL INPUT Y SE LE DA UN ID
+    const valor = { id: crypto.randomUUID(), task: loadedTask, status: false}; //SE GUARDA EN VALOR LO QUE SE ESCRIBIO EN EL INPUT Y SE LE DA UN ID
     setLsTask([...lsTask, valor]); //SE AGREGA EL NUEVO OBJETO CREADO
     localStorage.setItem("taskName", JSON.stringify([...lsTask, valor])); //SE AGREGA AL LS EL NUEVO OBJETO CREADO
   };

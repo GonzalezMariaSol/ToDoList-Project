@@ -17,11 +17,12 @@ function App() {
 
   const [lsTask, setLsTask] = useState(JSON.parse(localStorage.getItem("taskName")) || []); //VA ACTUALIZANDO AL LOCAL STORAGE
 
+
   return (
     <>
       <NavBar />
       <Form lsTask={lsTask} setLsTask={setLsTask}/>
-      <RenderTasks lsTasks={lsTask}/>
+      <RenderTasks lsTasks={lsTask} />
       {/* <Footer /> */}
     </>
   );

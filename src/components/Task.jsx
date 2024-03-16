@@ -1,13 +1,22 @@
 //ACA DEBE HABER LA FUNCION PARA ELIMINAR Y PARA TACHAR
-
+import { useState } from "react";
 import { MdCheck, MdDelete } from "react-icons/md"; // Importa los iconos de React Icons
 import { ListItem, ListItemText, IconButton } from "@mui/material";
 
-const Task = ({lsTaskId, lsTaskName, key}) => {
-  console.log(key);
+const Task = ({ lsTask, lsTaskId, lsTaskName }) => {
+  const [isCompleted, setIsCompleted] = useState(false);
+
+  const funcionCheck = (idClikleado) => {
+    lsTask.map((task) => {task.id === idClikleado ? setIsCompleted(!isCompleted) : task})
+  };
+
+  const funcionDelete = () => {
+    console.log();
+  };
+
   return (
     <div
-    key={key}
+      key={crypto.randomUUID()}
       style={{
         backgroundColor: "pink",
         width: "50%",
@@ -27,10 +36,10 @@ const Task = ({lsTaskId, lsTaskName, key}) => {
           id={lsTaskId}
           primary={lsTaskName}
           sx={{ marginRight: "2vw" }}
+          style={{ textDecoration: isCompleted ? "line-through" : "none" }}
         />
         <IconButton
-          onClick={() => console.log(lsTaskId)} //funciona el click
-
+          onClick={() => funcionCheck(lsTaskId)}
           aria-label="check"
           sx={{
             backgroundColor: "green",
