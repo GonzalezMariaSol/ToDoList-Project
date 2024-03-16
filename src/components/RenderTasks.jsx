@@ -8,7 +8,7 @@ const RenderTasks = ({ lsTasks }) => {
     <div>
       {lsTasks.length ? (
         lsTasks.map((lsTask) => (
-          <Task lsTask={lsTasks} lsTaskId={lsTask.id} lsTaskName={lsTask.task} />
+          <Task lsTasks={lsTasks} lsTaskId={lsTask.id} lsTaskName={lsTask.task} />
         ))
       ) : (
         <p>Sorry, no se mostraron tareas</p>
