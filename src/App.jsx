@@ -16,7 +16,6 @@ import RenderTasks from "./components/RenderTasks";
 function App() {
 
   const [lsTasks, setLsTask] = useState(JSON.parse(localStorage.getItem("taskName")) || []); //VA ACTUALIZANDO AL LOCAL STORAGE LAS TAREAS CARGADAS - TODAS -
-  console.log(lsTasks);
 
   return (
     <>
