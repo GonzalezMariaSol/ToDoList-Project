@@ -29,12 +29,10 @@ const Task = ({ lsTasks, setLsTask, lsTaskId, lsTaskName }) => {
   };
 
   const deleteTask = (chosenId) => {
-    //ENCUENTRO EL OBEJTO QUE QUIERO BORRAR
-    const wantedTask = lsTasks.find((task) => task.id === chosenId); //guardamos solo aquel task que coincida con el id del que se le dio click
-    //ME GUARDO SOLO LOS OBJETOS QUE TENGAN UN ID DIFERENTE AL QUE SE QUIERE ELIMINAR
+    //GUARDO SOLO LOS OBJETOS QUE TENGAN UN ID DIFERENTE AL QUE SE QUIERE ELIMINAR
     const updatedTasks = lsTasks.filter(task => task.id !== chosenId);
     //ACTUALIZO MI LS CON EL OBJ SELECCIONADO ELIMINADO
-    localStorage.setItem("taskName", JSON.stringify(updatedTasks)); //actualizamos el local storage sacandole el obj seleccionado
+    localStorage.setItem("taskName", JSON.stringify(updatedTasks));
     //REFRESCAMOS LA PAGINA ASI SE DEJA DE MOSTRAR AL ELEMENTO ELIMINADO
     window.location.reload(); 
   };
