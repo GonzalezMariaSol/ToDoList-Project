@@ -3,12 +3,12 @@ import React from "react";
 import Task from "./Task";
 
 
-const RenderTasks = ({ lsTasks }) => {
+const RenderTasks = ({ lsTasks, setLsTask}) => {
   return (
     <div>
       {lsTasks.length ? (
         lsTasks.map((lsTask) => (
-          <Task lsTasks={lsTasks} lsTaskId={lsTask.id} lsTaskName={lsTask.task} />
+          <Task key={crypto.randomUUID()} lsTasks={lsTasks} setLsTask={setLsTask} lsTaskId={lsTask.id} lsTaskName={lsTask.task} />
         ))
       ) : (
         <p>Sorry, no se mostraron tareas</p>

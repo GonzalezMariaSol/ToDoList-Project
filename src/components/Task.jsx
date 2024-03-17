@@ -1,31 +1,28 @@
-// const justGet = (selector) => document.getElementById(selector);
-//ACA DEBE HABER LA FUNCION PARA ELIMINAR Y PARA TACHAR
-import { useState } from "react";
-import { MdCheck, MdDelete, MdLogin } from "react-icons/md"; // Importa los iconos de React Icons
+import { MdCheck, MdDelete} from "react-icons/md"; // Importa los iconos de React Icons
 import { ListItem, ListItemText, IconButton } from "@mui/material";
 
-// TENGO QUE CREAR OTRA KEY PARA LOCAL STORAGE EN LA CUAL SE GUARDEN LAS TAREAS HECHAS!!!!
+const Task = ({ lsTasks, setLsTask, lsTaskId, lsTaskName }) => {
 
-const Task = ({ lsTasks, lsTaskId, lsTaskName }) => {
-  const [checkedTasks, setCheckedTasks] = useState([]);
+  const getCheckedTask = (idClikleado) => {//le llega un id del boton clickleado
+    const taskClicked = lsTasks.find((task) => task.id === idClikleado);//guardamos solo aquel task que coincida con el id del que se le dio click
+    
+    if (taskClicked) { //si se encontro uno que coincida con el id
+      const newCheckedTasks = { ...taskClicked, status: true }; //guardamos una copia de ese task, pero le agregamos un status true ya que se dio al check
 
-  const getCheckedTask = (idClikleado) => {
-    const taskClicked = lsTasks.find((task) => task.id === idClikleado);
-    if (taskClicked) {
-      const newCheckedTasks = { ...taskClicked, status: true };
-      const updatedTasks = [...checkedTasks, newCheckedTasks];
-      setCheckedTasks(updatedTasks);
-      saveCheckedTasksInLS(updatedTasks);
+      const updatedTasks = lsTasks.map((task) => { //tenemos q actualizar la lista de task, hacemos un mapeo por todos los task que ya tenemos cargados
+        if (task.id == idClikleado) { //si de los que tenemos cargados, coincide nuevamente con el id del que le dimos click
+          return newCheckedTasks; //al poner return newCheckedTasks dentro del map, estás reemplazando el objeto de la tarea original
+        } else {
+          return task; //sino que nos devuelva el task sin el status agregado
+        }
+      });
+      saveCheckedTasksInLS(updatedTasks); //hay que actualizar el localstorage con el objeto que tiene la nueva key
     }
   };
-  
-  const saveCheckedTasksInLS = (checkedTasks) => {
-    localStorage.setItem("checkedTasks", JSON.stringify(checkedTasks));
+  const saveCheckedTasksInLS = (checkedTasks) => { //recibe un objeto con el status nuevo dentro
+    setLsTask(checkedTasks); //este es opcional porque cambia al LS de app pero no dependemos de el
+    localStorage.setItem("taskName", JSON.stringify(checkedTasks)); //actualizamos el local storage agregandole el nuevo obj
   };
-    
-  //   const reconstruccion = { ...taskClicked, status: true };
-  //   setTaskIsCompleted([...taskIsCompleted, reconstruccion]);
-  //   localStorage.setItem("taskCompleted", JSON.stringify([...taskIsCompleted, reconstruccion]));
 
   return (
     <div
@@ -49,14 +46,13 @@ const Task = ({ lsTasks, lsTaskId, lsTaskName }) => {
           id={lsTaskId}
           primary={lsTaskName}
           sx={{ marginRight: "2vw" }}
-          // style={{
-          //   textDecoration: (chequeado = true ? "line-through" : "none"),
-          // }}
+          style={{
+            textDecoration: lsTasks.find(
+              (task) => task.id === lsTaskId && task.status) ? "line-through" : "none",
+          }}
         />
         <IconButton
-          onClick={() =>
-            getCheckedTask(lsTaskId)
-          }
+          onClick={() => getCheckedTask(lsTaskId)}
           aria-label="check"
           sx={{
             backgroundColor: "green",
@@ -78,22 +74,3 @@ const Task = ({ lsTasks, lsTaskId, lsTaskName }) => {
   );
 };
 export default Task;
-
-
-
-
-/*
-esto si funciona, pero no creo que se resuelva asi
-const Task = ({ lsTask, lsTaskId, lsTaskName }) => {
-  const [isCompleted, setIsCompleted] = useState(false);
-
-  const funcionCheck = (idClikleado) => {
-    lsTask.map((task) => {task.id === idClikleado ? setIsCompleted(!isCompleted) : task})
-  };
-
-  <IconButton
-          onClick={() =>
-            getCheckedTask(lsTaskId)
-          }
-
-*/
