@@ -18,8 +18,8 @@ const Task = ({ lsTasks, setLsTask, lsTaskId, lsTaskName }) => {
     }
   };
   const saveCheckedTasksInLS = (checkedTasks) => {//recibe un objeto con el status nuevo dentro
-    setLsTask(checkedTasks); //este es opcional porque cambia al LS de app pero no dependemos de el
-    localStorage.setItem("taskCollection", JSON.stringify(checkedTasks)); //actualizamos el local storage agregandole el nuevo obj
+    setLsTask(checkedTasks); //este hay que actualizarlo porque es quien se encarga de MOSTRAR la lista
+    localStorage.setItem("taskCollection", JSON.stringify(checkedTasks)); //este hay que actualizarlo porque es quien se encarga de GUARDAR la lista
   };
 
   const deleteTask = (chosenId) => {
