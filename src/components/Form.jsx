@@ -13,19 +13,17 @@ const Form = ({ lsTask, setLsTask }) => {
   }; //SOLO CAPTURA LO QUE ESCRIBE EL USUARIO EN EL INPUT
 
   const manageClick = (e) => {
-    if (e.key === "Enter") {
-      //permite cargar el task sin tener que hacer click en cargar
+    if (e.key === "Enter") {//permite cargar el task sin tener que hacer click en cargar
       e.preventDefault(); //evita que se auto refresque antes de lo debido
-      handleAddTask(loadedTask); //inicializamos handleaddtask con el valor que se escribio en el text field
-      // COMO PUEDO LIMPIAR EL TEXTFIELD LUEGO DEL ENTER?
+      saveAddedTask(loadedTask); //inicializamos saveAddedTask con el valor que se escribio en el text field
+      //! COMO PUEDO LIMPIAR EL TEXTFIELD LUEGO DEL ENTER?
     }
   };
 
-  const handleAddTask = (loadedTask) => {
-    //LE LLEGA LO QUE SE PUSO EN EL INPUT
-    const valor = { id: crypto.randomUUID(), task: loadedTask }; //SE GUARDA EN VALOR LO QUE SE ESCRIBIO EN EL INPUT Y SE LE DA UN ID
-    setLsTask([...lsTask, valor]); //SE AGREGA EL NUEVO OBJETO CREADO
-    localStorage.setItem("taskName", JSON.stringify([...lsTask, valor])); //SE AGREGA AL LS EL NUEVO OBJETO CREADO
+  const saveAddedTask = (loadedTask) => {//LE LLEGA LO QUE SE PUSO EN EL INPUT
+    const createdTask = { id: crypto.randomUUID(), task: loadedTask, status: false}; //SE GUARDA EN createdTask LO QUE SE ESCRIBIO EN EL INPUT Y SE LE DA UN ID
+    setLsTask([...lsTask, createdTask]); //SE AGREGA EL NUEVO OBJETO CREADO
+    localStorage.setItem("taskCollection", JSON.stringify([...lsTask, createdTask])); //SE AGREGA AL LS EL NUEVO OBJETO CREADO
   };
 
   return (
@@ -37,13 +35,12 @@ const Form = ({ lsTask, setLsTask }) => {
         justifyContent: "space-around",
         marginBottom: "5vw",
         width: "60%",
-        backgroundColor: "red",
       }}
       noValidate
       autoComplete="off"
       // onSubmit={(e) => manejarClick(e)} //SI QUISIERA HACER FUNCIONAR EL BUTON CARGAR
     >
-      <TextField
+      <TextField    
         id="outlined-basic"
         label="Task"
         variant="outlined"
@@ -56,7 +53,3 @@ const Form = ({ lsTask, setLsTask }) => {
   );
 };
 export default Form;
-
-/*
-
-*/
