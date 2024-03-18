@@ -35,7 +35,6 @@ const Task = ({ lsTasks, setLsTask, lsTaskId, lsTaskName }) => {
     <div
       key={crypto.randomUUID()}
       style={{
-        backgroundColor: "pink",
         width: "50%",
         display: "flex",
         alignItems: "center",
@@ -45,20 +44,22 @@ const Task = ({ lsTasks, setLsTask, lsTaskId, lsTaskName }) => {
         divider
         sx={{
           marginBottom: "1vw",
-          border: "1px solid black",
+          backgroundColor: "#a1a1a187",
+          border: "2px solid black",
           borderRadius: "5px",
         }}
       >
         <ListItemText
           id={lsTaskId}
           primary={lsTaskName}
-          sx={{ marginRight: "2vw" }}
-          style={{
-            textDecoration: lsTasks.find(
+          sx={{
+             marginRight: "2vw",
+             textDecoration: lsTasks.find(
               (task) => task.id === lsTaskId && task.status
             )
               ? "line-through"
               : "none",
+
           }}
         />
         <IconButton

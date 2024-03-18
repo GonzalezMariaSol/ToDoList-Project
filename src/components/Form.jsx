@@ -2,8 +2,7 @@ import { useState } from "react";
 
 import TaskTypeSelector from "./TaskTypeSelector";
 
-import Box from "@mui/material/Box"; //le da estilos a mi tag box
-import TextField from "@mui/material/TextField";
+import { Box, TextField } from '@mui/material';
 
 const Form = ({ lsTask, setLsTask }) => {
   const [loadedTask, setLoadedTask] = useState(""); //VA ENVIANDO Y TRAYENDO LO QUE ESTUVO ESCRIBIENDO EN EL INPUT ?????
@@ -34,16 +33,18 @@ const Form = ({ lsTask, setLsTask }) => {
         alignItems: "center",
         justifyContent: "space-around",
         marginBottom: "5vw",
-        width: "60%",
+        marginTop: "3vw",
       }}
       noValidate
       autoComplete="off"
       // onSubmit={(e) => manejarClick(e)} //SI QUISIERA HACER FUNCIONAR EL BUTON CARGAR
     >
       <TextField    
-        id="outlined-basic"
         label="Task"
-        variant="outlined"
+        InputLabelProps={{ style: { color: 'white', fontWeight: 'bold' } }}
+        InputProps={{
+          style: { color: 'white', border: "1px solid black"},
+        }}
         onChange={getTaskAdded}
         onKeyDown={(e) => manageClick(e)}
       />

@@ -4,7 +4,7 @@ import Task from "./Task";
 
 const RenderTasks = ({ lsTasks, setLsTask }) => {
   return (
-    <div>
+    <div style={{display: "flex", justifyContent: "center", alignItems: "center", flexDirection: "column"}}>
       {lsTasks.length ? ( //la lista de task hay algo?
         lsTasks.map((lsTask) => ( //recorreme esa lista y por cada tarea 
           <Task //creame un task - un rectangulo con informacion

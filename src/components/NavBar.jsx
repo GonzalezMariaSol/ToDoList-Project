@@ -1,8 +1,11 @@
+import React from 'react';
+import { Typography, Box } from '@mui/material';
+
 const NavBar = () => {
   return (
-    <div>
-      <h1>Task Tracker</h1>
-    </div>
+    <Box textAlign="center" pt={4} pb={2}>
+    <Typography variant="h2">Task Tracker</Typography>
+  </Box>
   );
 };
 export default NavBar;

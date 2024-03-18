@@ -31,14 +31,19 @@ const TaskTypeSelector = ({ lsTask, setLsTask }) => {
 
   return (
     <Box sx={{ minWidth: 120 }}>
-      <FormControl fullWidth>
-        <InputLabel id="demo-simple-select-label">Filter By</InputLabel>
+      <FormControl fullWidth sx={{border: "1px solid black", borderRadius:"5px", "&:hover": {
+      border: "none", // Elimina el borde en el estado de hover
+    },}}>
+      <InputLabel 
+          id="demo-simple-select-label"
+          sx={{ color: 'white', '&.Mui-focused': { color: 'white' }, fontWeight: 'bold' }}
+        >Filter By</InputLabel>
         <Select
           labelId="demo-simple-select-label"
           id="demo-simple-select"
-          value={optionChosen} //vale el valor actual que se eligio
+          value={optionChosen}
           label="filterOptions"
-          onChange={renderTasks} //cuando se escuche un cambio, capturame que cambio se hizo
+          onChange={renderTasks}
         >
           <MenuItem value={"all"}>All</MenuItem>
           <MenuItem value={"completed"}>Completed</MenuItem>
