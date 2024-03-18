@@ -47,7 +47,7 @@ const Form = ({ lsTask, setLsTask }) => {
         onChange={getTaskAdded}
         onKeyDown={(e) => manageClick(e)}
       />
-      <TaskTypeSelector />
+      <TaskTypeSelector lsTask={lsTask} setLsTask={setLsTask}/>
       {/* <button type="submit" >Cargar</button> */}
     </Box>
   );
