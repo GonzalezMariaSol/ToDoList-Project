@@ -1,17 +1,22 @@
-//SE ENCARGA DE TRAER LO DEL LOCAL Y RENDERIZARLO 
+//SE ENCARGA DE TRAER LO DEL LOCAL Y RENDERIZARLO
 import React from "react";
 import Task from "./Task";
 
-
-const RenderTasks = ({ lsTasks, setLsTask}) => {
+const RenderTasks = ({ lsTasks, setLsTask }) => {
   return (
     <div>
-      {lsTasks.length ? (
-        lsTasks.map((lsTask) => (
-          <Task key={crypto.randomUUID()} lsTasks={lsTasks} setLsTask={setLsTask} lsTaskId={lsTask.id} lsTaskName={lsTask.task} />
+      {lsTasks.length ? ( //la lista de task hay algo?
+        lsTasks.map((lsTask) => ( //recorreme esa lista y por cada tarea 
+          <Task //creame un task - un rectangulo con informacion
+            key={crypto.randomUUID()}
+            lsTasks={lsTasks}
+            setLsTask={setLsTask}
+            lsTaskId={lsTask.id}
+            lsTaskName={lsTask.task}
+          />
         ))
-      ) : (
-        <p>Sorry, no se mostraron tareas</p>
+      ) : (//sino mostrame que no hay tareas para realizar
+        <p>You're all caught up</p>
       )}
     </div>
   );
