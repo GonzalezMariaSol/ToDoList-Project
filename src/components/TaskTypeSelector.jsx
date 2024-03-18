@@ -10,6 +10,7 @@ const TaskTypeSelector = () => {
   const [optionChosen, setOptionChosen] = useState(""); //Iniciamos la app con la opcion all ya seleccionada
 
   const selectOption = (e) => {
+    console.log(e.target.value); //devuelve la opcion elegida
     setOptionChosen(e.target.value);
   }; //lo UNICO que hace es actualizar el estado, al nuevo que seria lo q el usuario eligio y se ejecuta cuando le hacen click al select
 
