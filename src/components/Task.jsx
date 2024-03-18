@@ -59,6 +59,8 @@ const Task = ({ lsTasks, setLsTask, lsTaskId, lsTaskName }) => {
             )
               ? "line-through"
               : "none",
+              textDecorationColor: "black", // color de la línea
+              textDecorationThickness: "2px",
 
           }}
         />
