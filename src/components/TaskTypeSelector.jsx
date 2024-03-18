@@ -18,7 +18,7 @@ const TaskTypeSelector = ({ lsTask, setLsTask }) => {
       const showCompleteTask = currentTasksLoaded.filter( //filtrame lo que me traje del LS
         (task) => task.status === true // y guardame unicamente los que tienen como estado true
       );
-      setLsTask(showCompleteTask); //renderizame los que tenian true como estado 
+      setLsTask(showCompleteTask); //renderizame los que tenian true como estado
     } else if (e.target.value === "pending") {//si lo que eligio es igual a pendiente
       const showPendingTask = currentTasksLoaded.filter( //filtrame lo que me traje del LS
         (task) => task.status === false //y guardame unicamente los que tiene com estado false
