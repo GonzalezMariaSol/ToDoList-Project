@@ -4,7 +4,15 @@ import TaskTypeSelector from "./TaskTypeSelector";
 
 import { Box, TextField } from "@mui/material";
 
-const Form = ({ lsTask, setLsTask }) => {
+import { useTheme } from '@mui/material/styles';// Importa a useTheme de mui
+import useMediaQuery from '@mui/material/useMediaQuery'; //importa useMediaQuery que permite verificar si el codigo coincide con el tamaño de la pantalla actual.
+
+
+const Form = ({ lsTask, setLsTask }) => { 
+
+  const theme = useTheme(); //guardamos los breakpoints
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm')); //Llama a la importacion useMediaQuery con el breakpoint de SMall. Esto da true si el ancho de la pantalla es menor que el breakpoint sm y false en caso contrario. El resultado se guarda en la variable isMobile. Entonces en la linea 80 podemos decirle style: marginBottom: isMobile ? '3vw' : 0 
+
   const [loadedTask, setLoadedTask] = useState([]); //VA ENVIANDO Y TRAYENDO LO QUE ESTUVO ESCRIBIENDO EN EL INPUT ?????
   const [error, setError] = useState(""); //va a estar corroborando que mi form se cumpla con lo pedido
 
@@ -52,42 +60,43 @@ const Form = ({ lsTask, setLsTask }) => {
 
   return (
     <Box
-      component="form"
-      sx={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        margin: "4vw",
-        marginLeft: "23vw",
-        marginRight: "23vw",
-      }}
-      noValidate
-      autoComplete="off"
-      // onSubmit={(e) => manejarClick(e)} //SI QUISIERA HACER FUNCIONAR EL BUTON CARGAR
-    >
-      <TextField
-        label="Task"
-        InputLabelProps={{ style: { color: "white", fontWeight: "bold" } }}
-        InputProps={{
-          style: { color: "white", border: "1px solid black", width: "30vw" },
-        }}
-        onChange={getTaskAdded}
-        onKeyDown={(e) => validateForm(e)}
-        error={!!error} //es una prop de mui cuando error sea exactamente true (q SI hay error)
-        helperText={error} //es una prop de mui y si error es true, entonces muestre el texto de ayuda (que se guarda en error)
-        FormHelperTextProps={{
-          style: {
-            backgroundColor: "black",
-            padding: "0.2vw",
-            display: "inline-block",
-            textAlign: "center",
-            borderRadius: "10px",
-          },
-        }} //le da estilos a mi texto de ayuda
-      />
-      <TaskTypeSelector lsTask={lsTask} setLsTask={setLsTask} />
-      {/* <button type="submit" >Cargar</button> */}
-    </Box>
+  component="form"
+  sx={{
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "space-between",
+    margin: "4vw",
+    marginLeft: "23vw",
+    marginRight: "23vw",
+    flexDirection: isMobile ? 'column' : 'row', // Cambia la dirección de los elementos en función del tamaño de la pantalla
+  }}
+  noValidate
+  autoComplete="off"
+>
+  <TextField
+    label="Task"
+    InputLabelProps={{ style: { color: "white", fontWeight: "bold" } }}
+    InputProps={{
+      style: { color: "white", border: "1px solid black", width: "30vw", marginBottom: isMobile ? '3vw' : 0 ,
+    },
+    }}
+    onChange={getTaskAdded}
+    onKeyDown={(e) => validateForm(e)}
+    error={!!error}
+    helperText={error}
+    FormHelperTextProps={{
+      style: {
+        backgroundColor: "black",
+        padding: "0.2vw",
+        display: "inline-block",
+        textAlign: "center",
+        borderRadius: "10px",
+      },
+    }}
+  />
+  <TaskTypeSelector lsTask={lsTask} setLsTask={setLsTask} />
+  {/* <button type="submit">Cargar</button> */}
+</Box>
   );
 };
 export default Form;

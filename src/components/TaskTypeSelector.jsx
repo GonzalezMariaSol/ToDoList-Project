@@ -1,12 +1,19 @@
 import { useState } from "react";
 
-import Box from "@mui/material/Box"; //le da estilos a mi tag box
-import FormControl from "@mui/material/FormControl"; //le da estilos a mi form
-import InputLabel from "@mui/material/InputLabel"; //le da estilos a mi input select
-import Select from "@mui/material/Select"; //le da estilos a mi select
-import MenuItem from "@mui/material/MenuItem"; //le da estilos a mi menuItem que serian como los option de mi select
+import { useTheme } from '@mui/material/styles';//guardamos los breakpoints
+import useMediaQuery from '@mui/material/useMediaQuery';///importa useMediaQuery que permite verificar si el codigo coincide con el tamaño de la pantalla actual.
+  
+  import Box from "@mui/material/Box"; //le da estilos a mi tag box
+  import FormControl from "@mui/material/FormControl"; //le da estilos a mi form
+  import InputLabel from "@mui/material/InputLabel"; //le da estilos a mi input select
+  import Select from "@mui/material/Select"; //le da estilos a mi select
+  import MenuItem from "@mui/material/MenuItem"; //le da estilos a mi menuItem que serian como los option de mi select
+  
+  const TaskTypeSelector = ({ lsTask, setLsTask }) => {
 
-const TaskTypeSelector = ({ lsTask, setLsTask }) => {
+  const theme = useTheme();//guardamos los breakpoints
+  const isMobile = useMediaQuery(theme.breakpoints.down('sm')); //Llama a la importacion useMediaQuery con el breakpoint de SMall. Esto da true si el ancho de la pantalla es menor que el breakpoint sm y false en caso contrario. El resultado se guarda en la variable isMobile. Entonces en la linea 43 podemos decirle style: width: isMobile ? 30vw : 15 
+  
   const [optionChosen, setOptionChosen] = useState(""); //Iniciamos la app con la opcion all ya seleccionada
 
   const currentTasksLoaded = JSON.parse(localStorage.getItem("taskCollection")); //nos guardamos lo hay en el localStorage
@@ -33,7 +40,7 @@ const TaskTypeSelector = ({ lsTask, setLsTask }) => {
     <Box sx={{ minWidth: 120 }}>
       <FormControl fullWidth sx={{border: "1px solid black", borderRadius:"5px", "&:hover": {
       border: "none", // Elimina el borde en el estado de hover
-    }, width:"15vw"}}>
+    }, width: isMobile ? '30vw' : "15vw"}}>
       <InputLabel 
           id="demo-simple-select-label"
           sx={{ color: 'white', '&.Mui-focused': { color: 'white' }, fontWeight: 'bold' }}
