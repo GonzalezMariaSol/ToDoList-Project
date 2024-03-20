@@ -43,7 +43,7 @@ const Form = ({ lsTask, setLsTask }) => {
         label="Task"
         InputLabelProps={{ style: { color: 'white', fontWeight: 'bold' } }}
         InputProps={{
-          style: { color: 'white', border: "1px solid black"},
+          style: { color: 'white', border: "1px solid black", width:"30vw"},
         }}
         onChange={getTaskAdded}
         onKeyDown={(e) => manageClick(e)}
