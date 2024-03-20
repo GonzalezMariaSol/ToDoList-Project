@@ -1,32 +1,26 @@
 // import "./App.css"; //no quiero esto
 import { useState } from "react";
-import NavBar from "./assets/components/NavBar";
-import Form from "./assets/components/Form";
-import RenderTasks from "./assets/components/RenderTasks";
-import ManageTasks from "./assets/components/ManageTasks";
-// import Footer from "./assets/components/Footer";
-
-
-
-//!MODIFIQUE APP CSS AGREGANDOLE EL BACKGROUND
-
-
-
+import NavBar from "./components/NavBar";
+import Form from "./components/Form";
+import RenderTasks from "./components/RenderTasks";
+import Footer from "./components/Footer";
 
 
 function App() {
-
-  const [lsTask, setLsTask] = useState(JSON.parse(localStorage.getItem("taskName")) || []); //VA ACTUALIZANDO AL LOCAL STORAGE
+  const [lsTasks, setLsTask] = useState(
+    JSON.parse(localStorage.getItem("taskCollection")) || []
+  ); //VA ACTUALIZANDO AL LOCAL STORAGE LAS TAREAS CARGADAS - TODAS -
 
   return (
-    <>
+    <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
       <NavBar />
-      <Form lsTask={lsTask} setLsTask={setLsTask}/>
-      <RenderTasks lsTasks={lsTask}/>
-     <ManageTasks />
-      {/* <Footer /> */}
-    </>
+      <div style={{ flexGrow: 1 }}>
+        <Form lsTask={lsTasks} setLsTask={setLsTask} />
+        <RenderTasks lsTasks={lsTasks} setLsTask={setLsTask} />
+      </div>
+      <Footer style={{ backgroundColor: 'black', color: 'white', textAlign: 'center', padding: '10px' }} />
+    </div>
   );
-}
+};
 
 export default App;

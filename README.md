@@ -1,8 +1,26 @@
-# React + Vite
+# Task Traker Project
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is the 5th out of 6 total projects required by ADA ITW school.
 
-Currently, two official plugins are available:
+## This project was based on the use of React.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* NPM
+* NODE
+* JSX
+* HOOKS
+* Props
+* useState
+* Utilization of the MUI library
+
+
+
+## Used Instalation
+
+Use the package manager [npm](https://www.npmjs.com/) to install Vite.
+
+```bash
+npm create vite@latest
+```
+
+
+![Pre view of project](src/assets/Capture.JPG)
