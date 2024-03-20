@@ -1,23 +1,31 @@
 import { MdCheck, MdDelete } from "react-icons/md"; // Importa los iconos de React Icons
 import { ListItem, ListItemText, IconButton } from "@mui/material";
+import { MdEdit } from "react-icons/md";
 
 const Task = ({ lsTasks, setLsTask, lsTaskId, lsTaskName }) => {
-  const getCheckedTask = (clickedId) => { //le llega un id del boton clickleado
+  const getCheckedTask = (clickedId) => {
+    //le llega un id del boton clickleado
     const taskClicked = lsTasks.find((task) => task.id === clickedId); //guardamos solo aquel task que coincida con el id del que se le dio click
 
-    if (taskClicked) {//si se encontro uno que coincida con el id
-      const updatedTasks = lsTasks.map((task) => {//recorreme tod0 lo que tenemos guardado
-        if (task.id == clickedId) {//si hay alguno que coincida el id de los ya guardados con el que se le dio click
+    if (taskClicked) {
+      //si se encontro uno que coincida con el id
+      const updatedTasks = lsTasks.map((task) => {
+        //recorreme tod0 lo que tenemos guardado
+        if (task.id == clickedId) {
+          //si hay alguno que coincida el id de los ya guardados con el que se le dio click
           const checkedTask = { ...taskClicked, status: !task.status }; //guardamos una copia de ese task, pero le cambiamos el status a lo opuesto si estaba en true, va a cambiar a false y lo mismo al reves
           return checkedTask; //al poner return checkedTask dentro del map, estás reemplazando el objeto de la tarea original
         } else {
           return task; //sino que nos devuelva el task sin el status agregado
         }
+
       });
       saveCheckedTasksInLS(updatedTasks); //hay que actualizar el localstorage con el objeto que tiene la nueva key
     }
   };
-  const saveCheckedTasksInLS = (checkedTasks) => {//recibe un objeto con el status nuevo dentro
+
+  const saveCheckedTasksInLS = (checkedTasks) => {
+    //recibe un objeto con el status nuevo dentro
     setLsTask(checkedTasks); //este hay que actualizarlo porque es quien se encarga de MOSTRAR la lista
     localStorage.setItem("taskCollection", JSON.stringify(checkedTasks)); //este hay que actualizarlo porque es quien se encarga de GUARDAR la lista
   };
@@ -53,15 +61,14 @@ const Task = ({ lsTasks, setLsTask, lsTaskId, lsTaskName }) => {
           id={lsTaskId}
           primary={lsTaskName}
           sx={{
-             marginRight: "2vw",
-             textDecoration: lsTasks.find(
+            marginRight: "2vw",
+            textDecoration: lsTasks.find(
               (task) => task.id === lsTaskId && task.status
             )
               ? "line-through"
               : "none",
-              textDecorationColor: "black", // color de la línea
-              textDecorationThickness: "2px",
-
+            textDecorationColor: "black", // color de la línea
+            textDecorationThickness: "2px",
           }}
         />
         <IconButton
