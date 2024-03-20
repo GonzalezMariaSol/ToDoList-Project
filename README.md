@@ -2,7 +2,7 @@
 
 This project is the 5th out of 6 total projects required by ADA ITW school.
 
-# This project was based on the use of React.
+## This project was based on the use of React.
 
 * NPM
 * NODE
@@ -13,9 +13,14 @@ This project is the 5th out of 6 total projects required by ADA ITW school.
 * Utilization of the MUI library
 
 
-![Pre view of project](src/assets/Capture.JPG)
+
+## Used Instalation
 
 Use the package manager [npm](https://www.npmjs.com/) to install Vite.
 
 ```bash
 npm create vite@latest
+```
+
+
+![Pre view of project](src/assets/Capture.JPG)
