@@ -59,6 +59,7 @@ const Form = ({ lsTask, setLsTask }) => {
         onKeyDown={(e) => manageClick(e)}
         error={!!error}//es una prop de mui cuando error sea exactamente true (q SI hay error) 
         helperText={error}//es una prop de mui y si error es true, entonces muestre el texto de ayuda (que se guarda en error)
+        FormHelperTextProps={{ style: { backgroundColor: 'black', padding: '0.2vw', display: 'inline-block', textAlign: 'center', borderRadius: '10px' } }}//le da estilos a mi texto de ayuda
       />
       <TaskTypeSelector lsTask={lsTask} setLsTask={setLsTask}/>
       {/* <button type="submit" >Cargar</button> */}
