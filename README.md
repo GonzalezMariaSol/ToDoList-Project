@@ -13,5 +13,5 @@ This project is the 5th out of 6 total projects required by ADA ITW school.
 * Utilization of the MUI library
 
 
-[![Demo video](https://img.youtube.com/vi/zfWtQcYe_2M/0.jpg)](https://www.youtube.com/watch?v=zfWtQcYe_2M)
+![Demo video](src\assets\14-54-30_V1-_online-video-cutter.com_.gif)
 
