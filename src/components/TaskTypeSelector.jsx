@@ -33,7 +33,7 @@ const TaskTypeSelector = ({ lsTask, setLsTask }) => {
     <Box sx={{ minWidth: 120 }}>
       <FormControl fullWidth sx={{border: "1px solid black", borderRadius:"5px", "&:hover": {
       border: "none", // Elimina el borde en el estado de hover
-    },}}>
+    }, width:"15vw"}}>
       <InputLabel 
           id="demo-simple-select-label"
           sx={{ color: 'white', '&.Mui-focused': { color: 'white' }, fontWeight: 'bold' }}
