@@ -16,11 +16,11 @@ const Form = ({ lsTask, setLsTask }) => {
     console.log(lsTask.task);
 
     if (e.target.value.length < 5) {
-      setError("¡Debes escribir al menos 5 caracteres!");
+      setError("You must write at least 5 characters!");
     } else if (e.target.value.length > 40) {
-      setError("¡Debes escribir menos de 40 caracteres!");
+      setError("¡You must write less than 40 characters!");
     } else if (lsTask.some((task) => task.task === e.target.value)) {
-      setError("¡Tarea ya existente!");
+      setError("¡Task already exists!");
     } else {
       setError("");
     }
