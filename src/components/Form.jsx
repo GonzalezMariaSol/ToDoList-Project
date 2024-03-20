@@ -31,9 +31,10 @@ const Form = ({ lsTask, setLsTask }) => {
       sx={{
         display: "flex",
         alignItems: "center",
-        justifyContent: "space-around",
-        marginBottom: "5vw",
-        marginTop: "3vw",
+        justifyContent: "space-between",
+        margin: "4vw",
+        marginLeft:"23vw",
+        marginRight:"23vw",
       }}
       noValidate
       autoComplete="off"
